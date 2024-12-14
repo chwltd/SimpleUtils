@@ -61,7 +61,7 @@ afterEvaluate {
                 create<MavenPublication>("maven") { // 使用 create 方法
                     groupId = "com.github.chwltd"
                     artifactId = "SimpleUtils"
-                    version = "0.0.1"
+                    version = "0.1.0"
                     pom {
                         description.set("SimpleUtils") // 使用 set 方法
                     }
