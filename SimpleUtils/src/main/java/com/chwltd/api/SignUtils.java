@@ -1,6 +1,5 @@
 package com.chwltd.api;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -27,7 +26,7 @@ public class SignUtils {
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             sb.append(entry.getKey()).append("=").append(entry.getValue().toString()).append("&");
         }
-        sb.append("secretKey=").append(Config.getKey());
+        sb.append("secretKey=").append(ApiConfig.getKey());
         return md5(sb.toString());
     }
 
@@ -60,8 +59,8 @@ public class SignUtils {
 
         public static String decrypt(String encryptedText) throws Exception {
             byte[] encryptedData = Base64.getDecoder().decode(encryptedText);
-            byte[] keyBytes = Config.getKey().getBytes(StandardCharsets.UTF_8);
-            byte[] ivBytes = Config.getKey().getBytes(StandardCharsets.UTF_8);
+            byte[] keyBytes = ApiConfig.getKey().getBytes(StandardCharsets.UTF_8);
+            byte[] ivBytes = ApiConfig.getKey().getBytes(StandardCharsets.UTF_8);
 
             SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");

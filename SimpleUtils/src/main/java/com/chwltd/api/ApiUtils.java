@@ -23,10 +23,10 @@ public class ApiUtils {
     public static String getAppInfo() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_app_info", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_app_info", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -37,12 +37,12 @@ public class ApiUtils {
     public static String getAppUpdateRecords(int limit, int page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_app_update_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_app_update_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -53,10 +53,10 @@ public class ApiUtils {
     public static String addView() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "add_view", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "add_view", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -67,10 +67,10 @@ public class ApiUtils {
     public static String getAppStatisticalData() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_app_statistical_data", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_app_statistical_data", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -81,12 +81,12 @@ public class ApiUtils {
     public static String adminIncreaseDecrease(String appkey, String userid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("appkey", appkey);
             jsonObject.addProperty("userid", userid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "admin_increase_decrease", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "admin_increase_decrease", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -103,14 +103,14 @@ public class ApiUtils {
     public static String login(String username, String password) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("username", username);
             jsonObject.addProperty("password", password);
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
 
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -121,14 +121,14 @@ public class ApiUtils {
     public static String login(String username, String password, String captcha) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("username", username);
             jsonObject.addProperty("password", password);
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("captcha", captcha);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -139,11 +139,11 @@ public class ApiUtils {
     public static String getImgageVerificationCode(int type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_image_verification_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_image_verification_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -154,14 +154,14 @@ public class ApiUtils {
     public static String mobileLogin(String mobile, String code, String captcha) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("mobile", mobile);
             jsonObject.addProperty("code", code);
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("captcha", captcha);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "mobile_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "mobile_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -172,12 +172,12 @@ public class ApiUtils {
     public static String getMobileVerificationCode(String mobile, int type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("mobile", mobile);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_mobile_verification_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_mobile_verification_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -188,7 +188,7 @@ public class ApiUtils {
     public static String register(String username, String password, String data, String captcha, String invitecode, int type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("username", username);
             jsonObject.addProperty("password", password);
             if (type == 1) {
@@ -196,12 +196,12 @@ public class ApiUtils {
             } else {
                 jsonObject.addProperty("email", data);
             }
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("captcha", captcha);
             jsonObject.addProperty("invitecode", invitecode);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "register", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "register", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -212,12 +212,12 @@ public class ApiUtils {
     public static String getEmailVerificationCode(String email, int type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("email", email);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_email_verification_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_email_verification_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -228,11 +228,11 @@ public class ApiUtils {
     public static String userHeartbeat() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "user_heartbeat", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "user_heartbeat", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -243,11 +243,11 @@ public class ApiUtils {
     public static String logOutLogin() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "log_out_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "log_out_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -258,12 +258,12 @@ public class ApiUtils {
     public static String getUserInformation(String userid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("userid", userid);
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -274,11 +274,11 @@ public class ApiUtils {
     public static String getUserOtherInformation() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_other_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_other_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -289,11 +289,11 @@ public class ApiUtils {
     public static String userSignIn() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "user_sign_in", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "user_sign_in", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -304,14 +304,14 @@ public class ApiUtils {
     public static String retrievePassword(String username, String password, String captcha, int type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("username", username);
             jsonObject.addProperty("password", password);
             jsonObject.addProperty("captcha", captcha);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "retrieve_password", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "retrieve_password", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -322,14 +322,14 @@ public class ApiUtils {
     public static String uploadAvatar(String path) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
             List<String> list = Arrays.asList();
             list.add("file\n"+path);
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "retrieve_password", list, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "retrieve_password", list, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -340,14 +340,14 @@ public class ApiUtils {
     public static String uploadBackground(String path) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
             List<String> list = Arrays.asList();
             list.add("file\n"+path);
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "upload_background", list, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "upload_background", list, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -358,13 +358,13 @@ public class ApiUtils {
     public static String changePassword(String password, String new_password) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("password", password);
             jsonObject.addProperty("new_password", new_password);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "change_password", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "change_password", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -375,8 +375,8 @@ public class ApiUtils {
     public static String modifyUserInformation(String nickname, String sex, String qq, String usertx, String userbg, String signature) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("nickname", nickname);
             jsonObject.addProperty("sex", sex);
             jsonObject.addProperty("qq", qq);
@@ -385,7 +385,7 @@ public class ApiUtils {
             jsonObject.addProperty("signature", signature);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "modify_user_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -396,13 +396,13 @@ public class ApiUtils {
     public static String modifyUserEmail(String email, String code) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("email", email);
             jsonObject.addProperty("code", code);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "modify_user_email", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_email", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -413,13 +413,13 @@ public class ApiUtils {
     public static String modifyUserPhone(String phone, String code) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("phone", phone);
             jsonObject.addProperty("code", code);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "modify_user_phone", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_phone", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -430,12 +430,12 @@ public class ApiUtils {
     public static String fillInvitationCode(String invitecode) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("invitecode", invitecode);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "fill_invitation_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "fill_invitation_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -448,14 +448,14 @@ public class ApiUtils {
     public static String rankingList(String sort, String sortOrder, String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "modify_user_phone", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_phone", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -467,13 +467,13 @@ public class ApiUtils {
     public static String invitationRanking(String sortOrder, String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("sortOrder", sortOrder);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "invitation_ranking", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "invitation_ranking", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -484,12 +484,12 @@ public class ApiUtils {
     public static String followUsers(String followedid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("followedid", followedid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "follow_users", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "follow_users", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -500,13 +500,13 @@ public class ApiUtils {
     public static String getFollowList(String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_follow_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_follow_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -517,13 +517,13 @@ public class ApiUtils {
     public static String getFanList(String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_fan_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_fan_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -534,13 +534,13 @@ public class ApiUtils {
     public static String getUserBilling(String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_fan_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_fan_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -554,8 +554,8 @@ public class ApiUtils {
     public static String getUserBilling(String transaction_type, String type, String deduction_type, String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("transaction_type", transaction_type);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("deduction_type", deduction_type);
@@ -563,7 +563,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_billing", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_billing", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -578,15 +578,15 @@ public class ApiUtils {
     public static String qqLogin(String openid, String access_token, String state) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("openid", openid);
             jsonObject.addProperty("access_token", access_token);
-            jsonObject.addProperty("qq_appid", Config.getQqAppid());
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("qq_appid", ApiConfig.getQqAppid());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("state", state);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "qq_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "qq_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -598,12 +598,12 @@ public class ApiUtils {
     public static String getFollowStatus(String followedid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("followedid", followedid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_follow_status", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_follow_status", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -615,8 +615,8 @@ public class ApiUtils {
     public static String userWithdrawCash(String name, String account, String money,String type,String remarks) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("name", name);
             jsonObject.addProperty("account", account);
             jsonObject.addProperty("money", money);
@@ -625,7 +625,7 @@ public class ApiUtils {
 
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "user_withdraw_cash", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "user_withdraw_cash", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -636,15 +636,15 @@ public class ApiUtils {
     public static String bindQq(String openid, String access_token, String state) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("openid", openid);
             jsonObject.addProperty("access_token", access_token);
-            jsonObject.addProperty("qq_appid", Config.getQqAppid());
+            jsonObject.addProperty("qq_appid", ApiConfig.getQqAppid());
             jsonObject.addProperty("state", state);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "bind_qq", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "bind_qq", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -656,14 +656,14 @@ public class ApiUtils {
     public static String getUserWithdrawCashList(String type, String page, String limit) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_billing", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_billing", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -674,11 +674,11 @@ public class ApiUtils {
     public static String unbindQq() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "unbind_qq", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "unbind_qq", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -690,13 +690,13 @@ public class ApiUtils {
     public static String medalWear(String medal_id,String type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("medal_id", medal_id);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "medal_wear", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "medal_wear", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -708,12 +708,12 @@ public class ApiUtils {
     public static String getUserBadge(String type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_badge", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_badge", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -724,10 +724,10 @@ public class ApiUtils {
     public static String getOnlineUser() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_online_user", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_online_user", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -744,12 +744,12 @@ public class ApiUtils {
     public static String applyDirectChargeKm(String km) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("km", km);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "apply_direct_charge_km", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "apply_direct_charge_km", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -760,12 +760,12 @@ public class ApiUtils {
     public static String applyLoginKm(String km) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("km", km);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "apply_login_km", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "apply_login_km", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -776,11 +776,11 @@ public class ApiUtils {
     public static String automaticLogin() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("device", Config.getDevice());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "automatic_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "automatic_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -797,12 +797,12 @@ public class ApiUtils {
     public static String productList(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "product_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "product_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -813,11 +813,11 @@ public class ApiUtils {
     public static String getProductInformation(String shopid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("shopid", shopid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_product_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_product_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -829,13 +829,13 @@ public class ApiUtils {
     public static String buyGoods(String shopid,String payment_type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("shopid", shopid);
             jsonObject.addProperty("payment_type", payment_type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_product_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_product_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -846,13 +846,13 @@ public class ApiUtils {
     public static String getOrderRecord(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_order_record", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_order_record", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -869,11 +869,11 @@ public class ApiUtils {
     public static String getSectionList() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_section_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_section_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -884,11 +884,11 @@ public class ApiUtils {
     public static String getSectionInformation(String sectionid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_section_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_section_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -899,8 +899,8 @@ public class ApiUtils {
     public static String getPostsList(String status,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
@@ -908,7 +908,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -919,8 +919,8 @@ public class ApiUtils {
     public static String getUserPostsList(String userid,String status,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("userid", userid);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("sort", sort);
@@ -929,7 +929,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -940,8 +940,8 @@ public class ApiUtils {
     public static String getSectionPostsList(String sectionid,String status,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("sort", sort);
@@ -950,7 +950,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -961,8 +961,8 @@ public class ApiUtils {
     public static String getSubSectionPostsList(String sub_sectionid,String status,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sub_sectionid", sub_sectionid);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("sort", sort);
@@ -971,7 +971,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -982,8 +982,8 @@ public class ApiUtils {
     public static String searchPostsList(String keyword,String status,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("keyword", keyword);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("sort", sort);
@@ -992,7 +992,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1003,13 +1003,13 @@ public class ApiUtils {
     public static String getRecommendedPosts(String keyword,String status,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_recommended_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_recommended_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1020,12 +1020,12 @@ public class ApiUtils {
     public static String getPostInformation(String postid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_recommended_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_recommended_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1036,8 +1036,8 @@ public class ApiUtils {
     public static String post(String title,String content,String subsectionid,List<String> path,String file,String paid_reading,String reading_price,String preview_word_count,String file_download_method,String file_download_price,String network_picture,String video_img) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("title", title);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("subsectionid", subsectionid);
@@ -1059,7 +1059,7 @@ public class ApiUtils {
             jsonObject.addProperty("video_img", video_img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "post", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "post", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1070,12 +1070,12 @@ public class ApiUtils {
     public static String deletePost(String postid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "delete_post", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_post", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1086,8 +1086,8 @@ public class ApiUtils {
     public static String postComment(String postid,String content,String parentid,List<String> path,String img) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("parentid", parentid);
@@ -1095,7 +1095,7 @@ public class ApiUtils {
             jsonObject.addProperty("img", img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "post_comment", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "post_comment", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1106,8 +1106,8 @@ public class ApiUtils {
     public static String editPost(String title,String content,String postid,List<String> path,String file,String paid_reading,String reading_price,String preview_word_count,String file_download_method,String file_download_price,String network_picture,String video_img) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("title", title);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("postid", postid);
@@ -1129,7 +1129,7 @@ public class ApiUtils {
             jsonObject.addProperty("video_img", video_img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "edit_post", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "edit_post", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1140,12 +1140,12 @@ public class ApiUtils {
     public static String deleteComment(String commentid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "delete_comment", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_comment", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1156,7 +1156,7 @@ public class ApiUtils {
     public static String getListComments(String postid,String userid,String status,String comment_id,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("userid", userid);
             jsonObject.addProperty("status", status);
@@ -1167,7 +1167,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_list_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_list_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1178,12 +1178,12 @@ public class ApiUtils {
     public static String likePosts(String postid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "like_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "like_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1194,13 +1194,13 @@ public class ApiUtils {
     public static String getLikesRecords(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_likes_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_likes_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1211,15 +1211,15 @@ public class ApiUtils {
     public static String getLikesRecords(String sectionid,String sub_sectionid,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("sub_sectionid", sub_sectionid);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_likes_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_likes_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1230,13 +1230,13 @@ public class ApiUtils {
     public static String browseHistory(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "browse_history", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "browse_history", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1247,15 +1247,15 @@ public class ApiUtils {
     public static String browseHistory(String sectionid,String sub_sectionid,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("sub_sectionid", sub_sectionid);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "browse_history", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "browse_history", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1266,14 +1266,14 @@ public class ApiUtils {
     public static String reviewPosts(String postid,String status,String reason_review) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("reason_review", reason_review);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "review_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "review_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1284,13 +1284,13 @@ public class ApiUtils {
     public static String getPendingReviewPosts(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_pending_review_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_pending_review_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1303,14 +1303,14 @@ public class ApiUtils {
     public static String postStatusModification(String postid,String type,String status) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "post_status_modification", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "post_status_modification", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1321,15 +1321,15 @@ public class ApiUtils {
     public static String getMyFollowingPosts(String sectionid,String sub_sectionid,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("sub_sectionid", sub_sectionid);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_my_following_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_my_following_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1340,13 +1340,13 @@ public class ApiUtils {
     public static String getMyFollowingPosts(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_my_following_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_my_following_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1357,14 +1357,14 @@ public class ApiUtils {
     public static String rewardPosts(String postid,String money,String payment) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("money", money);
             jsonObject.addProperty("payment", payment);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "reward_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "reward_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1375,13 +1375,13 @@ public class ApiUtils {
     public static String payPost(String postid,String type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "pay_post", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "pay_post", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1392,13 +1392,13 @@ public class ApiUtils {
     public static String getFollowUserPost(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_follow_user_post", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_follow_user_post", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1409,14 +1409,14 @@ public class ApiUtils {
     public static String rewardingComments(String commentid,String money,String payment) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("money", money);
             jsonObject.addProperty("payment", payment);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "rewarding_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "rewarding_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1427,12 +1427,12 @@ public class ApiUtils {
     public static String collectionPosts(String postid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "collection_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "collection_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1443,15 +1443,15 @@ public class ApiUtils {
     public static String getCollectionRecords(String sectionid,String sub_sectionid,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("sub_sectionid", sub_sectionid);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_collection_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_collection_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1462,13 +1462,13 @@ public class ApiUtils {
     public static String getCollectionRecords(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_collection_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_collection_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1479,11 +1479,11 @@ public class ApiUtils {
     public static String getLabels(String type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_labels", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_labels", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1494,15 +1494,15 @@ public class ApiUtils {
     public static String reporting(String type,String target_id,String tag,String content) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("target_id", target_id);
             jsonObject.addProperty("tag", tag);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "reporting", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "reporting", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1513,13 +1513,13 @@ public class ApiUtils {
     public static String getUserReporting(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_reporting", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_reporting", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1530,13 +1530,13 @@ public class ApiUtils {
     public static String getPendingReviewComments(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_pending_review_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_pending_review_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1547,14 +1547,14 @@ public class ApiUtils {
     public static String reviewComments(String commentid,String status,String reason_review) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("reason_review", reason_review);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "review_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "review_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1565,13 +1565,13 @@ public class ApiUtils {
     public static String editCommentTop(String commentid,String is_top) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("is_top", is_top);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "edit_comment_top", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "edit_comment_top", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1588,13 +1588,13 @@ public class ApiUtils {
     public static String getMessageNotifications(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1605,14 +1605,14 @@ public class ApiUtils {
     public static String getMessageNotifications(String type,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1623,11 +1623,11 @@ public class ApiUtils {
     public static String getUnreadMessageNotifications() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_unread_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_unread_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1638,12 +1638,12 @@ public class ApiUtils {
     public static String getUnreadMessageNotifications(String type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_unread_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_unread_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1654,11 +1654,11 @@ public class ApiUtils {
     public static String clearMessageNotification() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "clear_message_notification", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "clear_message_notification", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1675,13 +1675,13 @@ public class ApiUtils {
     public static String getNotesList(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_notes_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_notes_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1692,12 +1692,12 @@ public class ApiUtils {
     public static String getNotesDetails(String notesid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("notesid", notesid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_notes_details", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_notes_details", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1708,14 +1708,14 @@ public class ApiUtils {
     public static String updateNotes(String notesid,String title,String content) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("notesid", notesid);
             jsonObject.addProperty("title", title);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "update_notes", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "update_notes", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1726,12 +1726,12 @@ public class ApiUtils {
     public static String deleteNotes(String notesid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("notesid", notesid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "delete_notes", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_notes", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1742,13 +1742,13 @@ public class ApiUtils {
     public static String addNotes(String title,String content) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("title", title);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "addNotes", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "addNotes", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1765,8 +1765,8 @@ public class ApiUtils {
     public static String sendMessage(String receiver_id,String content,String pid,List<String> path,String file,String type,String money,String message_type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("receiver_id", receiver_id);
             jsonObject.addProperty("content", content);
             //回复的消息id
@@ -1780,7 +1780,7 @@ public class ApiUtils {
             jsonObject.addProperty("message_type", message_type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "send_message", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "send_message", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1791,13 +1791,13 @@ public class ApiUtils {
     public static String getMessageList(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_message_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_message_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1808,14 +1808,14 @@ public class ApiUtils {
     public static String getChatLog(String receiver_id,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("receiver_id", receiver_id);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_chat_log", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_chat_log", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1832,13 +1832,13 @@ public class ApiUtils {
     public static String appCategoryList(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "app_category_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "app_category_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1849,14 +1849,14 @@ public class ApiUtils {
     public static String appCategoryChildrenList(String pid,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("pid", pid);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "app_category_children_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "app_category_children_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1867,15 +1867,15 @@ public class ApiUtils {
     public static String getAppsList(String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1886,8 +1886,8 @@ public class ApiUtils {
     public static String getUserAppsList(String userid,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("userid", userid);
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
@@ -1895,7 +1895,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1906,8 +1906,8 @@ public class ApiUtils {
     public static String getCategoryAppsList(String category_id,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("category_id", category_id);
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
@@ -1915,7 +1915,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1926,8 +1926,8 @@ public class ApiUtils {
     public static String getSubCategoryAppsList(String sub_category_id,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("sub_category_id", sub_category_id);
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
@@ -1935,7 +1935,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1946,8 +1946,8 @@ public class ApiUtils {
     public static String searchAppsList(String appname,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("appname", appname);
             jsonObject.addProperty("sort", sort);
             jsonObject.addProperty("sortOrder", sortOrder);
@@ -1955,7 +1955,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1966,13 +1966,13 @@ public class ApiUtils {
     public static String getAppsInformation(String apps_id,String apps_version_id) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("apps_version_id", apps_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1983,13 +1983,13 @@ public class ApiUtils {
     public static String getAppsHistoryVersion(String apps_id,String status) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_history_version", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_history_version", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2000,8 +2000,8 @@ public class ApiUtils {
     public static String releaseApps(String appname,String icon,String app_size,List<String> path,String app_introduce,String app_introduction_image,String app_explain,String file,String is_pay,String pay_money,String app_version,String category_id,String sub_category_id,String update_content) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("appname", appname);
             jsonObject.addProperty("icon", icon);
             jsonObject.addProperty("app_size", app_size);
@@ -2026,7 +2026,7 @@ public class ApiUtils {
             jsonObject.addProperty("update_content", update_content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "release_apps", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "release_apps", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2037,8 +2037,8 @@ public class ApiUtils {
     public static String releaseNewVersion(String apps_id,String appname,String icon,String app_size,List<String> path,String app_introduce,String app_introduction_image,String app_explain,String file,String is_pay,String pay_money,String app_version,String category_id,String sub_category_id,String update_content) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("appname", appname);
             jsonObject.addProperty("icon", icon);
@@ -2064,7 +2064,7 @@ public class ApiUtils {
             jsonObject.addProperty("update_content", update_content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "release_new_version", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "release_new_version", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2075,8 +2075,8 @@ public class ApiUtils {
     public static String editAppsInfo(String apps_id,String appname,String icon,String app_size,List<String> path,String app_introduce,String app_introduction_image,String app_explain,String file,String is_pay,String pay_money,String app_version,String category_id,String sub_category_id,String update_content) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("appname", appname);
             jsonObject.addProperty("icon", icon);
@@ -2102,7 +2102,7 @@ public class ApiUtils {
             jsonObject.addProperty("update_content", update_content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "edit_apps_info", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "edit_apps_info", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2113,13 +2113,13 @@ public class ApiUtils {
     public static String getUserAppsList(String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_user_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2130,7 +2130,7 @@ public class ApiUtils {
     public static String getAppsCommentList(String apps_id,String apps_version_id,String comment_id,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("apps_version_id", apps_version_id);
             jsonObject.addProperty("comment_id", comment_id);
@@ -2140,7 +2140,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_comment_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_comment_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2151,7 +2151,7 @@ public class ApiUtils {
     public static String getUserAppsCommentList(String userid,String comment_id,String sort,String sortOrder,String limit,String page) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("userid", userid);
             jsonObject.addProperty("comment_id", comment_id);
             jsonObject.addProperty("sort", sort);
@@ -2160,7 +2160,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "get_apps_comment_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_comment_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2171,8 +2171,8 @@ public class ApiUtils {
     public static String appsAddComment(String apps_id,String apps_version_id,String content,String parentid,List<String> path,String img) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("apps_version_id", apps_version_id);
             jsonObject.addProperty("content", content);
@@ -2181,7 +2181,7 @@ public class ApiUtils {
             jsonObject.addProperty("img", img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "apps_add_comment", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "apps_add_comment", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2192,13 +2192,13 @@ public class ApiUtils {
     public static String deleteApps(String apps_id,String app_version_id) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "delete_apps", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_apps", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2209,12 +2209,12 @@ public class ApiUtils {
     public static String deleteAppsComment(String commentid) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "delete_apps_comment", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_apps_comment", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2225,13 +2225,13 @@ public class ApiUtils {
     public static String addDownloadCount(String apps_id,String app_version_id) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "add_download_count", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "add_download_count", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2242,13 +2242,13 @@ public class ApiUtils {
     public static String payForApps(String apps_id,String app_version_id) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "pay_for_apps", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "pay_for_apps", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2259,15 +2259,15 @@ public class ApiUtils {
     public static String rewardForApps(String apps_id,String app_version_id,String money,String type) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("apps_id", apps_id);
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("money", money);
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "pay_for_apps", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "pay_for_apps", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2284,14 +2284,14 @@ public class ApiUtils {
     public static String sendEmail(String email,String title,String content,String appkey) {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("email", email);
             jsonObject.addProperty("title", title);
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("appkey", appkey);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(Config.getAdmin() + "send_email", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "send_email", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2309,9 +2309,9 @@ public class ApiUtils {
             // 创建一个JsonObject对象
             JsonObject jsonObject = new JsonObject();
             // 向jsonObject中添加属性appid，其值为Config.getAppid()
-            jsonObject.addProperty("appid", Config.getAppid());
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
             // 向jsonObject中添加属性usertoken，其值为Config.getUserToken()
-            jsonObject.addProperty("usertoken", Config.getUserToken());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             // 向jsonObject中添加属性timestamp，其值为当前时间戳
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
@@ -2319,12 +2319,12 @@ public class ApiUtils {
             String result = null;
 
             // 判断Config.getKey()是否为null
-            if(Config.getKey()==null){
+            if(ApiConfig.getKey()==null){
                 // 如果Config.getKey()为null，则调用OkHttpUtils.uploadMultipleFilesWithJson方法上传文件，并将返回的结果赋值给result
-                result = OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "upload", path, jsonObject.toString());
+                result = OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "upload", path, jsonObject.toString());
             }else{
                 // 如果Config.getKey()不为null，则调用SignUtils.decrypt方法对上传结果进行解密，并将解密后的结果赋值给result
-                result = SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(Config.getAdmin() + "upload", path, jsonObject.toString()));
+                result = SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "upload", path, jsonObject.toString()));
             }
             // 返回result
             return result;

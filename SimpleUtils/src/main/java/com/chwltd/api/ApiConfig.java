@@ -1,6 +1,6 @@
 package com.chwltd.api;
 
-public class Config {
+public class ApiConfig {
     //admin 后台地址
     //key 后台key
     //device 用户设备码
@@ -40,7 +40,7 @@ public class Config {
     }
 
     public static void setDevice(String device) {
-        Config.device = device;
+        ApiConfig.device = device;
     }
 
     public static String getUserToken() {
@@ -48,7 +48,7 @@ public class Config {
     }
 
     public static void setUserToken(String userToken) {
-        Config.userToken = userToken;
+        ApiConfig.userToken = userToken;
     }
 
     public static String getQqAppid() {
@@ -56,7 +56,7 @@ public class Config {
     }
 
     public static void setQqAppid(String qqAppid) {
-        Config.qqAppid = qqAppid;
+        ApiConfig.qqAppid = qqAppid;
     }
 
     public static String getVersion() {
@@ -64,6 +64,6 @@ public class Config {
     }
 
     public static void setVersion(String version) {
-        Config.version = version;
+        ApiConfig.version = version;
     }
 }

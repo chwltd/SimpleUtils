@@ -1,8 +1,12 @@
 package com.chwltd.api;
 
 import java.lang.*;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 
-public class AppTheme {
+public class AppConfig {
     public static boolean themeType;
 
     //文本颜色
@@ -31,6 +35,9 @@ public class AppTheme {
     public static String themeOffColor2;
     //分割线颜色
     public static String themeLineColor;
+    public static Drawable themeOccupancy;
+    public static Drawable themeError;
+    public static int autoViewPagerSpeed;
 
 
     public static void setTheme(boolean type,String onColor,String offColor){
@@ -60,5 +67,9 @@ public class AppTheme {
         themeOnColor2 = "#ffffff";
         themeOffColor2 = "#e0e0e0";
         themeType=type;
+
+        themeOccupancy = new ColorDrawable(Color.parseColor("#e0e0e0"));
+        themeError = new ColorDrawable(Color.parseColor("#666666"));
+        autoViewPagerSpeed = 200;
     }
 }

@@ -1,7 +1,9 @@
 package com.chwltd.function;
+
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.view.MotionEvent;
+
 import androidx.viewpager.widget.ViewPager;
 
 public class AutoScrollViewPager {
@@ -25,7 +27,7 @@ public class AutoScrollViewPager {
 
     // 开始轮播
     public void startAutoScroll() {
-        if(!isAutoScroll) {
+        if (!isAutoScroll) {
             isAutoScroll = true;
             runnable = new Runnable() {
                 @Override
@@ -43,7 +45,7 @@ public class AutoScrollViewPager {
 
     // 暂停轮播
     public void stopAutoScroll() {
-        if(isAutoScroll) {
+        if (isAutoScroll) {
             isAutoScroll = false;
             handler.removeCallbacks(runnable);
         }
@@ -53,10 +55,14 @@ public class AutoScrollViewPager {
     @SuppressLint("ClickableViewAccessibility")
     private void setupTouchListener() {
         viewPager.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                stopAutoScroll();
-            } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                startAutoScroll();
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    stopAutoScroll();
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    startAutoScroll();
+                    break;
             }
             return false; // 继续处理触摸事件
         });

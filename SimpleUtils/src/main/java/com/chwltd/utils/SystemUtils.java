@@ -14,6 +14,7 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.GradientDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.icu.math.BigDecimal;
@@ -28,6 +29,8 @@ import android.os.Process;
 import android.os.StatFs;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
@@ -35,6 +38,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import dalvik.system.DexClassLoader;
 import java.io.File;
@@ -43,6 +48,90 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 public class SystemUtils {
+
+	private static Toast toast = null;
+
+	public static void CHToast(Context context,String text){
+		if(toast == null) {
+			toast = new Toast(context);
+		}
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.setDuration(Toast.LENGTH_LONG);
+		toast.setView(getToastView(context,text));
+		toast.show();
+	}
+
+	public static void CHToast(Context context,String text,int y){
+		if(toast == null) {
+			toast = new Toast(context);
+		}
+		toast.setGravity(Gravity.CENTER, 0, y);
+		toast.setDuration(Toast.LENGTH_LONG);
+		toast.setView(getToastView(context,text));
+		toast.show();
+	}
+
+	public static void CHToast(Context context,String text,String color){
+		if(toast == null) {
+			toast = new Toast(context);
+		}
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.setDuration(Toast.LENGTH_LONG);
+		toast.setView(getToastView(context,text,color));
+		toast.show();
+	}
+
+	public static void CHToast(Context context,String text,String color,int y){
+		if(toast == null) {
+			toast = new Toast(context);
+		}
+		toast.setGravity(Gravity.CENTER, 0, y);
+		toast.setDuration(Toast.LENGTH_LONG);
+		toast.setView(getToastView(context,text,color));
+		toast.show();
+	}
+
+	public static View getToastView(Context context,String text){
+		int padding = SystemUtils.dp2px(15);
+		int radius = SystemUtils.dp2px(10);
+		LinearLayout linearLayout = new LinearLayout(context);
+		linearLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+		linearLayout.setPadding(padding,padding,padding,padding);
+		TextView textView = new TextView(context);
+		textView.setText(text);
+		textView.setTextColor(Color.parseColor("#ffffff"));
+		textView.setTextSize(16);
+		textView.setMaxLines(2);
+		textView.setEllipsize(TextUtils.TruncateAt.END);
+		linearLayout.addView(textView);
+		GradientDrawable gradientDrawable = new GradientDrawable();
+		gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+		gradientDrawable.setColor(Color.parseColor("#cc666666"));
+		gradientDrawable.setCornerRadius(radius);
+		linearLayout.setBackground(gradientDrawable);
+		return linearLayout;
+	}
+
+	public static View getToastView(Context context,String text,String color){
+		int padding = SystemUtils.dp2px(15);
+		int radius = SystemUtils.dp2px(10);
+		LinearLayout linearLayout = new LinearLayout(context);
+		linearLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+		linearLayout.setPadding(padding,padding,padding,padding);
+		TextView textView = new TextView(context);
+		textView.setText(text);
+		textView.setTextColor(Color.parseColor("#ffffff"));
+		textView.setTextSize(16);
+		textView.setMaxLines(2);
+		textView.setEllipsize(TextUtils.TruncateAt.END);
+		linearLayout.addView(textView);
+		GradientDrawable gradientDrawable = new GradientDrawable();
+		gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+		gradientDrawable.setColor(Color.parseColor(color));
+		gradientDrawable.setCornerRadius(radius);
+		linearLayout.setBackground(gradientDrawable);
+		return linearLayout;
+	}
 
 	//获取Androidid
 	public static String getAndroidId(Context context) {
