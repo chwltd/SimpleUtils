@@ -35,9 +35,17 @@ public class AppConfig {
     public static String themeOffColor2;
     //分割线颜色
     public static String themeLineColor;
+    //占位符
     public static Drawable themeOccupancy;
+    //错误符
     public static Drawable themeError;
+    //自动轮播速度
     public static int autoViewPagerSpeed;
+    //加载图片渐变动画速度
+    public static int loadImageSpeed;
+    //Toast背景颜色
+    public static String themeToastBgColor;
+
 
 
     public static void setTheme(boolean type,String onColor,String offColor){
@@ -51,6 +59,7 @@ public class AppConfig {
             themeTopBgColor = "#444444";
             themeBannerBgColor = "#444444";
             themeLineColor = "#444444";
+            themeToastBgColor = "#cc666666";
         }else{
             themeTextColor = "#222222";
             themeItemBgColor = "#ffffff";
@@ -61,6 +70,7 @@ public class AppConfig {
             themeTopBgColor = "#ffffff";
             themeBannerBgColor = "#444444";
             themeLineColor = "#e0e0e0";
+            themeToastBgColor = "#cc222222";
         }
         themeOnColor = onColor;
         themeOffColor = offColor;
@@ -70,6 +80,7 @@ public class AppConfig {
 
         themeOccupancy = new ColorDrawable(Color.parseColor("#e0e0e0"));
         themeError = new ColorDrawable(Color.parseColor("#666666"));
-        autoViewPagerSpeed = 200;
+        autoViewPagerSpeed = 3000;
+        loadImageSpeed = 200;
     }
 }
