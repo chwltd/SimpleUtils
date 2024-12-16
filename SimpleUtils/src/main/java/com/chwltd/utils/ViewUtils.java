@@ -1,4 +1,6 @@
 package com.chwltd.utils;
+import android.animation.FloatEvaluator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.*;
 import android.content.*;
@@ -20,6 +22,35 @@ import android.hardware.display.*;
 import android.widget.Toolbar.*;
 
 public class ViewUtils {
+
+	public static float ButtomNavigationHeight=55.5f;
+
+	//主页导航栏收起动画
+	public static void setButomNavigationVisibility(Context context,View v, boolean show) {
+		float start = 0;
+		float end = 0;
+		if(show){
+			start = -ButtomNavigationHeight;
+			end = 0;
+		}else{
+			start = 0;
+			end = -ButtomNavigationHeight;
+		}
+		ValueAnimator animator = ValueAnimator.ofFloat(start, end);
+		animator.setDuration(200);
+		animator.setEvaluator(new FloatEvaluator());
+		animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+				float value = (float) animation.getAnimatedValue();
+				int marginInPx = SystemUtils.dp2px(value);
+				ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams)v.getLayoutParams();
+				layoutParams.bottomMargin = marginInPx;
+				v.setLayoutParams(layoutParams);
+			}
+		});
+		animator.start();
+	}
     /*
     Mus类库
     */

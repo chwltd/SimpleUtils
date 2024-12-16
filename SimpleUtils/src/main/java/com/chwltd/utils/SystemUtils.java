@@ -219,9 +219,11 @@ public class SystemUtils {
 	}
 	
 	//判断是否处于深色模式
-	public static boolean isDarkMode(Context context)
+	//返回false是深色
+	//返回true是浅色
+	public static boolean getThemeMode(Context context)
 	{
-		return (context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+		return (context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_NO;
 	}
     
 	//判断处于横竖屏
