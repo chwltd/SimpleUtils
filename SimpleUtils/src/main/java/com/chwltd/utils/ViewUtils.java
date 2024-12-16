@@ -34,7 +34,7 @@ public class ViewUtils {
 	public static void setButomNavigationVisibility(Context context,View v, boolean show) {
 		float start = 0;
 		float end = 0;
-		if(show){
+		if(!show){
 			start = -ButtomNavigationHeight;
 			end = 0;
 		}else{
