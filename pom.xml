@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.chwltd</groupId>
     <artifactId>SimpleUtils</artifactId>
-    <version>0.1.3</version>
+    <version>0.1.4</version>
     <packaging>pom</packaging>
     <description>SimpleUtils</description>
 </project>
