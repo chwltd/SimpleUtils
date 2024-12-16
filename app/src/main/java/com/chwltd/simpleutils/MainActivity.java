@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         initRecyclerView();
         init();
-        SystemUtils.CHToast(this,"测试Toast");
+        SystemUtils.CHToast(this,SystemUtils.getThemeMode(this)?"浅色主题":"深色主题");
     }
 
     private void init() {
