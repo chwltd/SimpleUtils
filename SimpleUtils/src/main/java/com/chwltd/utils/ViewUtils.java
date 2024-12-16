@@ -24,6 +24,11 @@ import android.widget.Toolbar.*;
 public class ViewUtils {
 
 	public static float ButtomNavigationHeight=55.5f;
+    /*
+    Mus类库
+    */
+    private static String rule="";
+	private static Typeface typeface=null;
 
 	//主页导航栏收起动画
 	public static void setButomNavigationVisibility(Context context,View v, boolean show) {
@@ -51,11 +56,6 @@ public class ViewUtils {
 		});
 		animator.start();
 	}
-    /*
-    Mus类库
-    */
-    private static String rule="";
-	private static Typeface typeface=null;
 	
     /*
     Mus类库
