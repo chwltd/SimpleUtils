@@ -26,6 +26,7 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.TransitionOptions;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 import android.content.Context;
@@ -58,6 +59,16 @@ public class ImageUtils {
             .transition(DrawableTransitionOptions.withCrossFade(speed))
             .into(imageView);
   }
+
+    public static void loadImage(Context context, ImageView imageView, String url, Drawable drawable, Drawable drawable2 ,int speed ,int w ,int h) {
+        Glide.with(context)
+                .load(url)
+                .override(w,h)
+                .placeholder(drawable)
+                .error(drawable2)
+                .transition(DrawableTransitionOptions.withCrossFade(speed))
+                .into(imageView);
+    }
 
   public static Bitmap getBitMBitmap(String urlpath) {
     final Bitmap[] bitmapHolder = new Bitmap[1];

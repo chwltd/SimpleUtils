@@ -148,6 +148,16 @@ public class SystemUtils {
 		return displayMetrics.widthPixels; // 返回屏幕宽度（像素）
 	}
 
+	public static int getScreenHeight(Context context) {
+		WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		if (windowManager != null) {
+			windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+		}
+		return displayMetrics.heightPixels; // 返回屏幕高度（像素）
+	}
+
+
 	//获取Androidid
 	public static String getAndroidId(Context context) {
 		return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);

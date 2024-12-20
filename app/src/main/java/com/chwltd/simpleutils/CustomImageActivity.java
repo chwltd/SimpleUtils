@@ -27,7 +27,7 @@ public class CustomImageActivity extends AppCompatActivity {
         String img5 = "https://tse4-mm.cn.bing.net/th/id/OIP-C.DDPh0iH6FGp1UNhz6mYf5QHaEK?w=308&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7";
         String img6 = "https://tse2-mm.cn.bing.net/th/id/OIP-C.Gu_Xe6UuJYsG35Z3tOFLNQHaEK?w=279&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7";
         String img7 = "https://tse3-mm.cn.bing.net/th/id/OIP-C.gKGUOUBdHVlfVl7Ms4vK0QHaEK?w=329&h=185&c=7&r=0&o=5&dpr=1.5&pid=1.7";
-        binding.customImageView.setImageUrl(Arrays.asList(img1,img2,img3,img4,img5,img6,img7));
+        binding.customImageView.setImageUrls(Arrays.asList(img1,img2,img3,img4,img5,img6,img7,img7));
         //binding.customImageView.setImageUrl("[\""+img1+"\",\""+img2+"\",\""+img3+"\",\""+img4+"\",\""+img5+"\",\""+img6+"\",\""+img7+"\"]");
     }
 }

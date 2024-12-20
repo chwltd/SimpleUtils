@@ -84,8 +84,8 @@ public class AppConfig {
         themeOffColor2 = "#e0e0e0";
         themeType=type;
 
-        //themeOccupancy = new ColorDrawable(Color.parseColor("#e0e0e0"));
-        themeOccupancy = createSimpleDrawable();
+        themeOccupancy = new ColorDrawable(Color.parseColor("#e0e0e0"));
+        //themeOccupancy = createSimpleDrawable();
 
         themeError = new ColorDrawable(Color.parseColor("#666666"));
         autoViewPagerSpeed = 3000;

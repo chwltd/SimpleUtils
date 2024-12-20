@@ -11,19 +11,27 @@ import com.chwltd.utils.SystemUtils;
  * 高度自适应ImageView，高度始终充满显示区域，宽度成比例缩放
  */
 public class AutoImageView extends androidx.appcompat.widget.AppCompatImageView {
-    private static final int MIN_HEIGHT_DP = 120;
-    private static final int MAX_HEIGHT_DP = 350;
+    private static int MIN_HEIGHT_DP;
+    private static int MAX_HEIGHT_DP;
 
     public AutoImageView(Context context) {
         super(context);
+        init();
     }
 
     public AutoImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public AutoImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    public void init(){
+        MAX_HEIGHT_DP = (int) (SystemUtils.getScreenHeight(getContext())/2.5f);
+        MIN_HEIGHT_DP = (int) (SystemUtils.getScreenWidth(getContext())/3);
     }
 
     @Override
@@ -33,14 +41,21 @@ public class AutoImageView extends androidx.appcompat.widget.AppCompatImageView 
         int height = MeasureSpec.getSize(heightMeasureSpec);
         // 获取图片的实际宽高
         Drawable drawable = getDrawable();
+
+
         if (drawable != null) {
             int drawableWidth = drawable.getIntrinsicWidth();
             int drawableHeight = drawable.getIntrinsicHeight();
 
-            int maxHeightPx = SystemUtils.dp2px(MAX_HEIGHT_DP);
-            int minHeightPx = SystemUtils.dp2px(MIN_HEIGHT_DP);
+            System.out.println("drawableWidth:"+drawableWidth);
+            System.out.println("drawableHeight:"+drawableHeight);
+            System.out.println("width:"+width);
+            System.out.println("height:"+height);
+
+            int maxHeightPx = MAX_HEIGHT_DP;
+            int minHeightPx = MIN_HEIGHT_DP;
             int maxWidthPx = width;
-            int minWidthPx = SystemUtils.dp2px(MIN_HEIGHT_DP);
+            int minWidthPx = MIN_HEIGHT_DP;
 
             if(drawableWidth >= drawableHeight) {
 
@@ -66,7 +81,7 @@ public class AutoImageView extends androidx.appcompat.widget.AppCompatImageView 
                 if (drawableWidth > maxWidthPx) {
                     drawableWidth = maxWidthPx;
                 } else if (drawableWidth < minWidthPx) {
-                    drawableWidth = maxWidthPx;
+                    drawableWidth = minWidthPx;
                 }
 
                 drawableHeight = (int) (drawableWidth * scale);

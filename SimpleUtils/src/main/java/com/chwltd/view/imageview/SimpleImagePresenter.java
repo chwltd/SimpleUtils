@@ -12,60 +12,67 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.chwltd.api.AppConfig;
 import com.chwltd.utils.ImageUtils;
 import com.chwltd.utils.SystemUtils;
 import com.google.gson.Gson;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class SimpleImageView extends RelativeLayout {
+public class SimpleImagePresenter extends RelativeLayout {
 
+    //图片数据
     private List<String> imageUrls;
-    private int imageNum;
-    private LinearLayout linearLayout;
-    private int viewHeight = SystemUtils.dp2px(220);
-    private int viewWidth = SystemUtils.dp2px(110);
+    //图片数量
+    private int imageNum = 0;
+    //图片展示跟布局
+    private LinearLayout rootLinearLayout;
+    //图片数量展示view
+    private TextView imageNumTextView;
+    //分割线宽度
     private int lineWidth = SystemUtils.dp2px(2.5f);
+    //三图样式高度
+    private int threeImageStyleHeight = SystemUtils.getScreenWidth(getContext())/2 + lineWidth;
+    //三图样式图片宽度
+    private int threeImageSytleWidth = SystemUtils.getScreenWidth(getContext())/4;
+    //图片展示器外边距数据
+    private int marginData = 0;
+    //一行二图宽度
+    private int twoImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*marginData-lineWidth)/2;
+    //一行三图宽度
+    private int threeImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*marginData-2*lineWidth)/3;
+    //图片数量圆角
+    private int imageNumRadius = SystemUtils.dp2px(7.5f);
+    //图片数量外边距
+    private int imageNumMargin = SystemUtils.dp2px(10);
+    //图片数量背景颜色
+    private int imageNumBackgroundColor = Color.parseColor("#222222");
 
-    private float simpleImageViewMargin = SystemUtils.dp2px(0);
-    private int twoImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*simpleImageViewMargin-lineWidth)/2;
-    private int threeImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*simpleImageViewMargin-2*lineWidth)/3;
-
-    public SimpleImageView(Context context) {
+    public SimpleImagePresenter(Context context) {
         super(context);
     }
 
-    public SimpleImageView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public SimpleImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    public SimpleImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SimpleImagePresenter(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public void setSimpleImageViewMargin(float margin){
-        simpleImageViewMargin = SystemUtils.dp2px(margin);
-        twoImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*simpleImageViewMargin-lineWidth)/2;
-        threeImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*simpleImageViewMargin-2*lineWidth)/3;
+    public SimpleImagePresenter(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
-    public void setImageUrl(List<String> urls) {
-        imageUrls = urls;
-        imageNum = urls.size();
-        initView();
+    public SimpleImagePresenter(Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 
-    public void setImageUrl(String data){
-        Gson gson = new Gson();
-        imageUrls = gson.fromJson(data,List.class);
-        imageNum = imageUrls.size();
-        initView();
+    public void initData(){
+        //三图样式高度
+        threeImageStyleHeight = SystemUtils.getScreenWidth(getContext())/2 + lineWidth;
+        //一行二图宽度
+        twoImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*marginData-lineWidth)/2;
+        //一行三图宽度
+        threeImageHeight = (int) (SystemUtils.getScreenWidth(getContext())-2*marginData-2*lineWidth)/3;
     }
 
     public void initView(){
@@ -104,6 +111,19 @@ public class SimpleImageView extends RelativeLayout {
         }
     }
 
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
+        imageNum = imageUrls.size();
+        initView();
+    }
+
+    public void setImageUrl(String data){
+        Gson gson = new Gson();
+        imageUrls = gson.fromJson(data,List.class);
+        imageNum = imageUrls.size();
+        initView();
+    }
+
     public void loadTwoImage(LinearLayout view,int start){
         for (int i = start; i < start+2; i++) {
             ImageView imageView = new ImageView(getContext());
@@ -136,52 +156,51 @@ public class SimpleImageView extends RelativeLayout {
 
     public void oneImageStyle() {
         AutoImageView imageView = new AutoImageView(getContext());
-
         // 设置布局参数
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, // 宽度设置为MATCH_PARENT
                 ViewGroup.LayoutParams.WRAP_CONTENT  // 高度设置为WRAP_CONTENT
         );
         imageView.setLayoutParams(layoutParams);
-//
-//        // 设置最大高度和最小高度、宽度
-//        imageView.setMaxHeight(SystemUtils.dp2px(350)); // 最大高度350dp
-//        imageView.setMinimumHeight(SystemUtils.dp2px(120)); // 最小高度120dp
-//        imageView.setMinimumWidth(SystemUtils.dp2px(120)); // 最小宽度120dp
-//
-//        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//        imageView.setAdjustViewBounds(true);
-
-        loadImage(imageView,imageUrls.get(0));
+        String imageUrl = imageUrls.get(0);
+        Pattern pattern = Pattern.compile("w=(\\d+)&h=(\\d+)");
+        Matcher matcher = pattern.matcher(imageUrl);
+        if (matcher.find()) {
+            int width = Integer.parseInt(matcher.group(1));  // 获取宽度
+            int height = Integer.parseInt(matcher.group(2)); // 获取高度
+            // 输出结果
+            loadImage(imageView,imageUrl,width,height);
+        } else {
+            loadImage(imageView,imageUrl);
+        }
         addView(imageView);
     }
 
     public void twoImageStyle() {
-        linearLayout = new LinearLayout(getContext());
-        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, twoImageHeight));
-        loadTwoImage(linearLayout,0);
-        addView(linearLayout);
+        rootLinearLayout = new LinearLayout(getContext());
+        rootLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        rootLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, twoImageHeight));
+        loadTwoImage(rootLinearLayout,0);
+        addView(rootLinearLayout);
     }
 
     public void threeImageStyle() {
-        linearLayout = new LinearLayout(getContext());
-        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        int imageHeight = 2*viewWidth+lineWidth;
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, imageHeight));
+        rootLinearLayout = new LinearLayout(getContext());
+        rootLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        rootLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, threeImageStyleHeight));
         ImageView imageView1 = new ImageView(getContext());
         imageView1.setScaleType(ImageView.ScaleType.CENTER_CROP);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         params.weight = 1;
         imageView1.setLayoutParams(params);
         loadImage(imageView1,imageUrls.get(0));
-        linearLayout.addView(imageView1);
+        rootLinearLayout.addView(imageView1);
 
-        createVerticalLine(linearLayout);
+        createVerticalLine(rootLinearLayout);
 
         LinearLayout linearLayout2 = new LinearLayout(getContext());
         linearLayout2.setOrientation(LinearLayout.VERTICAL);
-        linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(viewWidth, ViewGroup.LayoutParams.MATCH_PARENT));
+        linearLayout2.setLayoutParams(new LinearLayout.LayoutParams(threeImageSytleWidth, ViewGroup.LayoutParams.MATCH_PARENT));
         for (int i = 1; i < 3; i++) {
             ImageView imageView = new ImageView(getContext());
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -192,14 +211,14 @@ public class SimpleImageView extends RelativeLayout {
                 createHorizontalLine(linearLayout2);
             }
         }
-        linearLayout.addView(linearLayout2);
-        addView(linearLayout);
+        rootLinearLayout.addView(linearLayout2);
+        addView(rootLinearLayout);
     }
 
     public void fourImageStyle() {
-        linearLayout = new LinearLayout(getContext());
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 2*twoImageHeight));
+        rootLinearLayout = new LinearLayout(getContext());
+        rootLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 2*twoImageHeight));
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         params.weight = 1;
@@ -214,10 +233,10 @@ public class SimpleImageView extends RelativeLayout {
 
         loadTwoImage(linearLayout1,0);
         loadTwoImage(linearLayout2,2);
-        linearLayout.addView(linearLayout1);
-        createHorizontalLine(linearLayout);
-        linearLayout.addView(linearLayout2);
-        addView(linearLayout);
+        rootLinearLayout.addView(linearLayout1);
+        createHorizontalLine(rootLinearLayout);
+        rootLinearLayout.addView(linearLayout2);
+        addView(rootLinearLayout);
     }
 
     public void fiveImageStyle() {
@@ -226,9 +245,9 @@ public class SimpleImageView extends RelativeLayout {
     }
 
     public void sixImageStyle() {
-        linearLayout = new LinearLayout(getContext());
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 2*threeImageHeight+lineWidth));
+        rootLinearLayout = new LinearLayout(getContext());
+        rootLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 2*threeImageHeight+lineWidth));
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         params.weight = 1;
@@ -243,10 +262,10 @@ public class SimpleImageView extends RelativeLayout {
 
         loadThreeImage(linearLayout1,0);
         loadThreeImage(linearLayout2,3);
-        linearLayout.addView(linearLayout1);
-        createHorizontalLine(linearLayout);
-        linearLayout.addView(linearLayout2);
-        addView(linearLayout);
+        rootLinearLayout.addView(linearLayout1);
+        createHorizontalLine(rootLinearLayout);
+        rootLinearLayout.addView(linearLayout2);
+        addView(rootLinearLayout);
     }
 
     public void moreImageStyle() {
@@ -255,7 +274,11 @@ public class SimpleImageView extends RelativeLayout {
     }
 
     private void loadImage(ImageView imageView,String url){
-        ImageUtils.loadImage(getContext(),imageView,url,AppConfig.themeOccupancy,AppConfig.themeError,AppConfig.loadImageSpeed);
+        ImageUtils.loadImage(getContext(),imageView,url, AppConfig.themeOccupancy,AppConfig.themeError,AppConfig.loadImageSpeed);
+    }
+
+    private void loadImage(ImageView imageView,String url,int w ,int h){
+        ImageUtils.loadImage(getContext(),imageView,url,AppConfig.themeOccupancy,AppConfig.themeError,AppConfig.loadImageSpeed,w,h);
     }
 
     private void createNumTextView(){
@@ -268,8 +291,8 @@ public class SimpleImageView extends RelativeLayout {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        params.bottomMargin = SystemUtils.dp2px(10);
-        params.rightMargin = SystemUtils.dp2px(10);
+        params.bottomMargin = imageNumMargin;
+        params.rightMargin = imageNumMargin;
         textView.setLayoutParams(params);
         addView(textView);
     }
@@ -293,13 +316,53 @@ public class SimpleImageView extends RelativeLayout {
         drawable.setShape(GradientDrawable.RECTANGLE);
 
         // 设置圆角半径，这里设置为10dp对应的像素值，你可以根据实际需求调整
-        float cornerRadius = SystemUtils.dp2px(5);
+        float cornerRadius = imageNumRadius;
         drawable.setCornerRadius(cornerRadius);
 
         // 设置颜色，使用稍微透明的黑色，格式是ARGB，这里透明度设置为128（取值范围是0-255，0表示完全透明，255表示完全不透明）
-        drawable.setColor(Color.parseColor("#222222"));
+        drawable.setColor(imageNumBackgroundColor);
         drawable.setAlpha(168);
 
         return drawable;
+    }
+
+    public void setlineWidth(int lineWidth) {
+        this.lineWidth = SystemUtils.dp2px(lineWidth);
+    }
+
+    public void setMarginData(int marginData) {
+        this.marginData = SystemUtils.dp2px(marginData);
+    }
+
+    public void setlineWidthPx(int lineWidth) {
+        this.lineWidth = lineWidth;
+    }
+
+    public void setMarginDataPx(int marginData) {
+        this.marginData = marginData;
+    }
+
+    public void setImageNumBackgroundColor(int imageNumBackgroundColor) {
+        this.imageNumBackgroundColor = imageNumBackgroundColor;
+    }
+
+    public void setImageNumBackgroundColor(String imageNumBackgroundColor) {
+        this.imageNumBackgroundColor = Color.parseColor(imageNumBackgroundColor);
+    }
+
+    public void setImageNumRadius(int imageNumRadius) {
+        this.imageNumRadius = SystemUtils.dp2px(imageNumRadius);
+    }
+
+    public void setImageNumRadiusPx(int imageNumRadius) {
+        this.imageNumRadius = imageNumRadius;
+    }
+
+    public void setImageNumMargin(int imageNumMargin) {
+        this.imageNumMargin = SystemUtils.dp2px(imageNumMargin);
+    }
+
+    public void setImageNumMarginPx(int imageNumMargin) {
+        this.imageNumMargin = imageNumMargin;
     }
 }
