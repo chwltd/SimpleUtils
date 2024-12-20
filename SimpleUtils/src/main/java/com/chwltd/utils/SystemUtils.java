@@ -30,6 +30,7 @@ import android.os.StatFs;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -131,6 +132,20 @@ public class SystemUtils {
 		gradientDrawable.setCornerRadius(radius);
 		linearLayout.setBackground(gradientDrawable);
 		return linearLayout;
+	}
+
+	/**
+	 * 获取屏幕宽度
+	 * @param context 上下文
+	 * @return 屏幕宽度（像素）
+	 */
+	public static int getScreenWidth(Context context) {
+		WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		if (windowManager != null) {
+			windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+		}
+		return displayMetrics.widthPixels; // 返回屏幕宽度（像素）
 	}
 
 	//获取Androidid

@@ -1,10 +1,12 @@
 package com.chwltd.simpleutils;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chwltd.api.AppConfig;
 import com.chwltd.simpleutils.databinding.ActivityMainBinding;
 import com.chwltd.utils.SystemUtils;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -23,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
+        AppConfig.setTheme(true,"#ffffff","#222222");
         initRecyclerView();
         init();
         SystemUtils.CHToast(this,SystemUtils.getThemeMode(this)?"浅色主题":"深色主题");
+        Intent intent = new Intent(this,CustomImageActivity.class);
+        startActivity(intent);
     }
 
     private void init() {
