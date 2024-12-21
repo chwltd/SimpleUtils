@@ -49,6 +49,12 @@ public class SimpleImagePresenter extends RelativeLayout {
     private int imageNumMargin = SystemUtils.dp2px(10);
     //图片数量背景颜色
     private int imageNumBackgroundColor = Color.parseColor("#222222");
+    //图片数量背景透明度255不透明0全透明
+    private int imageNumBackgroundAlpha = 168;
+    //图片数量字体大小
+    private int imageNumTextSize = 12;
+    //图片数量字体颜色
+    private int imageNumTextColor = Color.parseColor("#ffffff");
 
     public SimpleImagePresenter(Context context) {
         super(context);
@@ -88,16 +94,22 @@ public class SimpleImagePresenter extends RelativeLayout {
             fiveImageStyle();
         }else if(imageNum==6){
             sixImageStyle();
-        }else {
-            moreImageStyle();
+        }else if(imageNum<9){
+            moreSixImageStyle();
+        }else if(imageNum==9){
+            nineImageStyle();
+        }else if(imageNum>9){
+            moreNineImageStyle();
         }
 
         int imageHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
         if(imageNum == 2){
             imageHeight = twoImageHeight;
-        }else if(imageNum >= 4){
+        }else if(imageNum >= 4&&imageNum<9){
             imageHeight = 2*threeImageHeight+lineWidth;
+        }else if(imageNum>9){
+            imageHeight = 3*threeImageHeight+2*lineWidth;
         }
 
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -117,7 +129,7 @@ public class SimpleImagePresenter extends RelativeLayout {
         initView();
     }
 
-    public void setImageUrl(String data){
+    public void setImageUrls(String data){
         Gson gson = new Gson();
         imageUrls = gson.fromJson(data,List.class);
         imageNum = imageUrls.size();
@@ -240,8 +252,27 @@ public class SimpleImagePresenter extends RelativeLayout {
     }
 
     public void fiveImageStyle() {
-        fourImageStyle();
-        createNumTextView();
+        rootLinearLayout = new LinearLayout(getContext());
+        rootLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 2*twoImageHeight));
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        params.weight = 1;
+
+        LinearLayout linearLayout1 = new LinearLayout(getContext());
+        linearLayout1.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout1.setLayoutParams(params);
+
+        LinearLayout linearLayout2 = new LinearLayout(getContext());
+        linearLayout2.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout2.setLayoutParams(params);
+
+        loadThreeImage(linearLayout1,0);
+        loadTwoImage(linearLayout2,3);
+        rootLinearLayout.addView(linearLayout1);
+        createHorizontalLine(rootLinearLayout);
+        rootLinearLayout.addView(linearLayout2);
+        addView(rootLinearLayout);
     }
 
     public void sixImageStyle() {
@@ -268,8 +299,44 @@ public class SimpleImagePresenter extends RelativeLayout {
         addView(rootLinearLayout);
     }
 
-    public void moreImageStyle() {
+    public void nineImageStyle() {
+        rootLinearLayout = new LinearLayout(getContext());
+        rootLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3*threeImageHeight+2*lineWidth));
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        params.weight = 1;
+
+        LinearLayout linearLayout1 = new LinearLayout(getContext());
+        linearLayout1.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout1.setLayoutParams(params);
+
+        LinearLayout linearLayout2 = new LinearLayout(getContext());
+        linearLayout2.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout2.setLayoutParams(params);
+
+        LinearLayout linearLayout3 = new LinearLayout(getContext());
+        linearLayout3.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout3.setLayoutParams(params);
+
+        loadThreeImage(linearLayout1,0);
+        loadThreeImage(linearLayout2,3);
+        loadThreeImage(linearLayout3,6);
+        rootLinearLayout.addView(linearLayout1);
+        createHorizontalLine(rootLinearLayout);
+        rootLinearLayout.addView(linearLayout2);
+        createHorizontalLine(rootLinearLayout);
+        rootLinearLayout.addView(linearLayout3);
+        addView(rootLinearLayout);
+    }
+
+    public void moreSixImageStyle() {
         sixImageStyle();
+        createNumTextView();
+    }
+
+    public void moreNineImageStyle() {
+        nineImageStyle();
         createNumTextView();
     }
 
@@ -285,8 +352,8 @@ public class SimpleImagePresenter extends RelativeLayout {
         TextView textView = new TextView(getContext());
         textView.append(imageNum+" 图");
         textView.setPadding(SystemUtils.dp2px(6),SystemUtils.dp2px(3),SystemUtils.dp2px(6),SystemUtils.dp2px(3));
-        textView.setTextSize(13);
-        textView.setTextColor(Color.parseColor("#ffffff"));
+        textView.setTextSize(imageNumTextSize);
+        textView.setTextColor(imageNumTextColor);
         textView.setBackground(createDrawable());
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
@@ -321,7 +388,7 @@ public class SimpleImagePresenter extends RelativeLayout {
 
         // 设置颜色，使用稍微透明的黑色，格式是ARGB，这里透明度设置为128（取值范围是0-255，0表示完全透明，255表示完全不透明）
         drawable.setColor(imageNumBackgroundColor);
-        drawable.setAlpha(168);
+        drawable.setAlpha(imageNumBackgroundAlpha);
 
         return drawable;
     }
@@ -364,5 +431,21 @@ public class SimpleImagePresenter extends RelativeLayout {
 
     public void setImageNumMarginPx(int imageNumMargin) {
         this.imageNumMargin = imageNumMargin;
+    }
+
+    public void setImageNumBackgroundAlpha(int imageNumBackgroundAlpha) {
+        this.imageNumBackgroundAlpha = imageNumBackgroundAlpha;
+    }
+
+    public void setImageNumTextSize(int imageNumTextSize) {
+        this.imageNumTextSize = imageNumTextSize;
+    }
+
+    public void setImageNumTextColor(int imageNumTextColor) {
+        this.imageNumTextColor = imageNumTextColor;
+    }
+
+    public void setImageNumTextColor(String imageNumTextColor) {
+        this.imageNumTextColor = Color.parseColor(imageNumTextColor);
     }
 }
