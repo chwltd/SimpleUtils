@@ -16,6 +16,7 @@ import com.chwltd.api.AppConfig;
 import com.chwltd.utils.ImageUtils;
 import com.chwltd.utils.SystemUtils;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -124,14 +125,24 @@ public class SimpleImagePresenter extends RelativeLayout {
     }
 
     public void setImageUrls(List<String> imageUrls) {
+        removeAllViews();
         this.imageUrls = imageUrls;
         imageNum = imageUrls.size();
         initView();
     }
 
     public void setImageUrls(String data){
+        removeAllViews();
         Gson gson = new Gson();
         imageUrls = gson.fromJson(data,List.class);
+        imageNum = imageUrls.size();
+        initView();
+    }
+
+    public void setImageUrls(JsonArray jsonArray){
+        removeAllViews();
+        Gson gson = new Gson();
+        imageUrls = gson.fromJson(jsonArray,List.class);
         imageNum = imageUrls.size();
         initView();
     }
