@@ -49,6 +49,8 @@ public class AppConfig {
     public static int loadImageSpeed;
     //Toast背景颜色
     public static String themeToastBgColor;
+    //称号颜色数据
+    public static String userTitleColorData = "{\"测试\":{\"TextColor\":\"#ffffff\",\"TitleColor\":\"#2196F3\"}}";
 
     public static void setTheme(boolean type){
         setTheme(type,themeOnColor,themeOffColor);
@@ -84,7 +86,7 @@ public class AppConfig {
         themeOffColor2 = "#e0e0e0";
         themeType=type;
 
-        themeOccupancy = new ColorDrawable(Color.parseColor("#e0e0e0"));
+        themeOccupancy = new ColorDrawable(Color.parseColor(themeRippleColor));
         //themeOccupancy = createSimpleDrawable();
 
         themeError = new ColorDrawable(Color.parseColor("#666666"));

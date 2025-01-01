@@ -6,6 +6,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.chwltd.simpleutils.databinding.ActivityCustomImageBinding;
+import com.chwltd.utils.SystemUtils;
+import com.chwltd.view.badgeview.SimpleBadgeView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,5 +31,9 @@ public class CustomImageActivity extends AppCompatActivity {
         String img7 = "https://tse3-mm.cn.bing.net/th/id/OIP-C.gKGUOUBdHVlfVl7Ms4vK0QHaEK?w=329&h=185&c=7&r=0&o=5&dpr=1.5&pid=1.7";
         binding.customImageView.setImageUrls(Arrays.asList(img1,img2,img3,img4,img5,img6,img7,img5,img6,img7));
         //binding.customImageView.setImageUrl("[\""+img1+"\",\""+img2+"\",\""+img3+"\",\""+img4+"\",\""+img5+"\",\""+img6+"\",\""+img7+"\"]");
+        SimpleBadgeView badgeView = binding.badgeView;
+        badgeView.setParentTextView(binding.textview);
+        System.out.println("size:"+binding.textview.getTextSize());
+        badgeView.setBadgeData(Arrays.asList("你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试",img1));
     }
 }
