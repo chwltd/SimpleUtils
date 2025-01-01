@@ -48,8 +48,17 @@ public class ImageUtils {
   Glide加载图片
   */
   public static void loadImage(Context context, ImageView imageView, String url) {
-    Glide.with(context).load(url).into(imageView);
+    Glide.with(context)
+            .load(url)
+            .into(imageView);
   }
+
+    public static void loadImage(Context context, ImageView imageView, String url ,int speed) {
+        Glide.with(context)
+                .load(url)
+                .transition(DrawableTransitionOptions.withCrossFade(speed))
+                .into(imageView);
+    }
 
   public static void loadImage(Context context, ImageView imageView, String url, Drawable drawable, Drawable drawable2 ,int speed) {
     Glide.with(context)

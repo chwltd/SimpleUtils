@@ -149,7 +149,7 @@ public class SimpleBadgeView extends HorizontalScrollView {
     }
 
     private void loadImage(ImageView imageView,String url){
-        ImageUtils.loadImage(getContext(),imageView,url, AppConfig.themeOccupancy,AppConfig.themeError,AppConfig.loadImageSpeed);
+        ImageUtils.loadImage(getContext(),imageView,url,AppConfig.loadImageSpeed);
     }
 
     public void setMarginData(float data){

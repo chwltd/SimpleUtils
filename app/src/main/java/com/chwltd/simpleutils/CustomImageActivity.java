@@ -34,6 +34,6 @@ public class CustomImageActivity extends AppCompatActivity {
         SimpleBadgeView badgeView = binding.badgeView;
         badgeView.setParentTextView(binding.textview);
         System.out.println("size:"+binding.textview.getTextSize());
-        badgeView.setBadgeData(Arrays.asList("你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试","你好呀","测试",img1));
+        badgeView.setBadgeData(Arrays.asList("你好呀","测试","http://zjapp.cxovo.cn/uploads/20231113/e896c7fea6288c68fe12345afb577686.png"));
     }
 }
