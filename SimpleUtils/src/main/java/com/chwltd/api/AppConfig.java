@@ -49,6 +49,8 @@ public class AppConfig {
     public static int loadImageSpeed;
     //Toast背景颜色
     public static String themeToastBgColor;
+    //Toast背景颜色
+    public static String themePostLabelBgColor;
     //称号颜色数据
     public static String userTitleColorData = "{\"测试\":{\"TextColor\":\"#ffffff\",\"TitleColor\":\"#2196F3\"}}";
 
@@ -68,6 +70,7 @@ public class AppConfig {
             themeBannerBgColor = "#444444";
             themeLineColor = "#444444";
             themeToastBgColor = "#cc666666";
+            themePostLabelBgColor = "#444444";
         }else{
             themeTextColor = "#222222";
             themeItemBgColor = "#ffffff";
@@ -79,6 +82,7 @@ public class AppConfig {
             themeBannerBgColor = "#444444";
             themeLineColor = "#e0e0e0";
             themeToastBgColor = "#cc222222";
+            themePostLabelBgColor = "#f0f0f0";
         }
         themeOnColor = onColor;
         themeOffColor = offColor;

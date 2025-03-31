@@ -26,7 +26,7 @@ public class ApiUtils {
             jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_app_info", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_app_info", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -42,7 +42,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_app_update_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_app_update_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -56,7 +56,7 @@ public class ApiUtils {
             jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "add_view", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "add_view", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -70,7 +70,7 @@ public class ApiUtils {
             jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_app_statistical_data", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_app_statistical_data", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -86,7 +86,7 @@ public class ApiUtils {
             jsonObject.addProperty("userid", userid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "admin_increase_decrease", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "admin_increase_decrease", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -110,7 +110,7 @@ public class ApiUtils {
 
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -128,7 +128,7 @@ public class ApiUtils {
             jsonObject.addProperty("captcha", captcha);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -143,7 +143,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_image_verification_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_image_verification_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -161,7 +161,7 @@ public class ApiUtils {
             jsonObject.addProperty("captcha", captcha);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "mobile_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "mobile_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -177,7 +177,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_mobile_verification_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_mobile_verification_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -201,7 +201,7 @@ public class ApiUtils {
             jsonObject.addProperty("invitecode", invitecode);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "register", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "register", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -217,7 +217,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_email_verification_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_email_verification_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -232,7 +232,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "user_heartbeat", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "user_heartbeat", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -247,7 +247,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "log_out_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "log_out_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -263,7 +263,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -278,7 +278,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_other_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_other_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -293,7 +293,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "user_sign_in", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "user_sign_in", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -311,7 +311,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "retrieve_password", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "retrieve_password", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -329,7 +329,7 @@ public class ApiUtils {
             List<String> list = Arrays.asList();
             list.add("file\n"+path);
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "retrieve_password", list, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "retrieve_password", list, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -347,7 +347,7 @@ public class ApiUtils {
             List<String> list = Arrays.asList();
             list.add("file\n"+path);
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "upload_background", list, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "upload_background", list, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -364,7 +364,7 @@ public class ApiUtils {
             jsonObject.addProperty("new_password", new_password);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "change_password", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "change_password", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -385,7 +385,7 @@ public class ApiUtils {
             jsonObject.addProperty("signature", signature);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "modify_user_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -402,7 +402,7 @@ public class ApiUtils {
             jsonObject.addProperty("code", code);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_email", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "modify_user_email", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -419,7 +419,7 @@ public class ApiUtils {
             jsonObject.addProperty("code", code);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_phone", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "modify_user_phone", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -435,7 +435,7 @@ public class ApiUtils {
             jsonObject.addProperty("invitecode", invitecode);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "fill_invitation_code", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "fill_invitation_code", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -455,7 +455,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "modify_user_phone", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "modify_user_phone", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -473,7 +473,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "invitation_ranking", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "invitation_ranking", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -489,7 +489,7 @@ public class ApiUtils {
             jsonObject.addProperty("followedid", followedid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "follow_users", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "follow_users", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -506,7 +506,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_follow_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_follow_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -523,7 +523,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_fan_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_fan_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -540,7 +540,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_fan_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_fan_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -563,7 +563,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_billing", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_billing", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -581,12 +581,12 @@ public class ApiUtils {
             jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("openid", openid);
             jsonObject.addProperty("access_token", access_token);
-            jsonObject.addProperty("qq_appid", ApiConfig.getQqAppid());
+            jsonObject.addProperty("qq_appid", ApiConfig.getAppidQQ());
             jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("state", state);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "qq_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "qq_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -603,7 +603,7 @@ public class ApiUtils {
             jsonObject.addProperty("followedid", followedid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_follow_status", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_follow_status", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -625,7 +625,7 @@ public class ApiUtils {
 
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "user_withdraw_cash", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "user_withdraw_cash", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -640,11 +640,11 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("openid", openid);
             jsonObject.addProperty("access_token", access_token);
-            jsonObject.addProperty("qq_appid", ApiConfig.getQqAppid());
+            jsonObject.addProperty("qq_appid", ApiConfig.getAppidQQ());
             jsonObject.addProperty("state", state);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "bind_qq", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "bind_qq", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -663,7 +663,7 @@ public class ApiUtils {
             jsonObject.addProperty("limit", limit);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_billing", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_billing", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -678,7 +678,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "unbind_qq", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "unbind_qq", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -696,7 +696,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "medal_wear", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "medal_wear", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -713,7 +713,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_badge", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_badge", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -727,7 +727,7 @@ public class ApiUtils {
             jsonObject.addProperty("appid", ApiConfig.getAppid());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_online_user", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_online_user", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -749,7 +749,7 @@ public class ApiUtils {
             jsonObject.addProperty("km", km);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "apply_direct_charge_km", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "apply_direct_charge_km", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -765,7 +765,7 @@ public class ApiUtils {
             jsonObject.addProperty("km", km);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "apply_login_km", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "apply_login_km", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -780,7 +780,7 @@ public class ApiUtils {
             jsonObject.addProperty("device", ApiConfig.getDevice());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "automatic_login", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "automatic_login", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -802,7 +802,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "product_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "product_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -817,7 +817,7 @@ public class ApiUtils {
             jsonObject.addProperty("shopid", shopid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_product_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_product_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -835,7 +835,7 @@ public class ApiUtils {
             jsonObject.addProperty("payment_type", payment_type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_product_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_product_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -852,7 +852,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_order_record", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_order_record", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -873,7 +873,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_section_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_section_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -888,7 +888,7 @@ public class ApiUtils {
             jsonObject.addProperty("sectionid", sectionid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_section_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_section_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -908,7 +908,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -929,7 +929,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -950,7 +950,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -971,7 +971,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -992,7 +992,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_posts_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_posts_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1009,7 +1009,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_recommended_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_recommended_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1025,7 +1025,7 @@ public class ApiUtils {
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_recommended_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_recommended_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1059,7 +1059,7 @@ public class ApiUtils {
             jsonObject.addProperty("video_img", video_img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "post", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "post", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1075,7 +1075,7 @@ public class ApiUtils {
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_post", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "delete_post", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1095,7 +1095,7 @@ public class ApiUtils {
             jsonObject.addProperty("img", img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "post_comment", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "post_comment", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1129,7 +1129,7 @@ public class ApiUtils {
             jsonObject.addProperty("video_img", video_img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "edit_post", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "edit_post", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1145,7 +1145,7 @@ public class ApiUtils {
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_comment", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "delete_comment", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1167,7 +1167,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_list_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_list_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1183,7 +1183,7 @@ public class ApiUtils {
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "like_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "like_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1200,7 +1200,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_likes_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_likes_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1219,7 +1219,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_likes_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_likes_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1236,7 +1236,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "browse_history", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "browse_history", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1255,7 +1255,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "browse_history", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "browse_history", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1273,7 +1273,7 @@ public class ApiUtils {
             jsonObject.addProperty("reason_review", reason_review);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "review_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "review_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1290,7 +1290,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_pending_review_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_pending_review_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1310,7 +1310,7 @@ public class ApiUtils {
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "post_status_modification", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "post_status_modification", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1329,7 +1329,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_my_following_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_my_following_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1346,7 +1346,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_my_following_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_my_following_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1364,7 +1364,7 @@ public class ApiUtils {
             jsonObject.addProperty("payment", payment);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "reward_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "reward_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1381,7 +1381,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "pay_post", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "pay_post", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1398,7 +1398,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_follow_user_post", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_follow_user_post", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1416,7 +1416,7 @@ public class ApiUtils {
             jsonObject.addProperty("payment", payment);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "rewarding_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "rewarding_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1432,7 +1432,7 @@ public class ApiUtils {
             jsonObject.addProperty("postid", postid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "collection_posts", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "collection_posts", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1451,7 +1451,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_collection_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_collection_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1468,7 +1468,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_collection_records", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_collection_records", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1483,7 +1483,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_labels", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_labels", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1502,7 +1502,7 @@ public class ApiUtils {
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "reporting", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "reporting", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1519,7 +1519,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_reporting", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_reporting", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1536,7 +1536,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_pending_review_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_pending_review_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1554,7 +1554,7 @@ public class ApiUtils {
             jsonObject.addProperty("reason_review", reason_review);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "review_comments", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "review_comments", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1571,7 +1571,7 @@ public class ApiUtils {
             jsonObject.addProperty("is_top", is_top);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "edit_comment_top", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "edit_comment_top", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1594,7 +1594,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1612,7 +1612,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1627,7 +1627,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_unread_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_unread_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1643,7 +1643,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_unread_message_notifications", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_unread_message_notifications", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1658,7 +1658,7 @@ public class ApiUtils {
             jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "clear_message_notification", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "clear_message_notification", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1681,7 +1681,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_notes_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_notes_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1697,7 +1697,7 @@ public class ApiUtils {
             jsonObject.addProperty("notesid", notesid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_notes_details", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_notes_details", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1715,7 +1715,7 @@ public class ApiUtils {
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "update_notes", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "update_notes", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1731,7 +1731,7 @@ public class ApiUtils {
             jsonObject.addProperty("notesid", notesid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_notes", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "delete_notes", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1748,7 +1748,7 @@ public class ApiUtils {
             jsonObject.addProperty("content", content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "addNotes", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "addNotes", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1780,7 +1780,7 @@ public class ApiUtils {
             jsonObject.addProperty("message_type", message_type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "send_message", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "send_message", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1797,7 +1797,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_message_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_message_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1815,7 +1815,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_chat_log", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_chat_log", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1838,7 +1838,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "app_category_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "app_category_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1856,7 +1856,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "app_category_children_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "app_category_children_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1875,7 +1875,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1895,7 +1895,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1915,7 +1915,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1935,7 +1935,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1955,7 +1955,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1972,7 +1972,7 @@ public class ApiUtils {
             jsonObject.addProperty("apps_version_id", apps_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_information", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_information", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -1989,7 +1989,7 @@ public class ApiUtils {
             jsonObject.addProperty("status", status);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_history_version", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_history_version", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2026,7 +2026,7 @@ public class ApiUtils {
             jsonObject.addProperty("update_content", update_content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "release_apps", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "release_apps", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2064,7 +2064,7 @@ public class ApiUtils {
             jsonObject.addProperty("update_content", update_content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "release_new_version", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "release_new_version", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2102,7 +2102,7 @@ public class ApiUtils {
             jsonObject.addProperty("update_content", update_content);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "edit_apps_info", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "edit_apps_info", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2119,7 +2119,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_user_apps_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_user_apps_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2140,7 +2140,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_comment_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_comment_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2160,7 +2160,7 @@ public class ApiUtils {
             jsonObject.addProperty("page", page);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "get_apps_comment_list", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "get_apps_comment_list", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2181,7 +2181,7 @@ public class ApiUtils {
             jsonObject.addProperty("img", img);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "apps_add_comment", path, jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "apps_add_comment", path, jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2198,7 +2198,7 @@ public class ApiUtils {
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_apps", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "delete_apps", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2214,7 +2214,7 @@ public class ApiUtils {
             jsonObject.addProperty("commentid", commentid);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "delete_apps_comment", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "delete_apps_comment", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2231,7 +2231,7 @@ public class ApiUtils {
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "add_download_count", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "add_download_count", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2248,7 +2248,7 @@ public class ApiUtils {
             jsonObject.addProperty("app_version_id", app_version_id);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "pay_for_apps", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "pay_for_apps", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2267,7 +2267,7 @@ public class ApiUtils {
             jsonObject.addProperty("type", type);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "pay_for_apps", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "pay_for_apps", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2291,7 +2291,7 @@ public class ApiUtils {
             jsonObject.addProperty("appkey", appkey);
             jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
-            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getAdmin() + "send_email", jsonObject.toString()));
+            return SignUtils.decrypt(OkHttpUtils.postJson(ApiConfig.getApi() + "send_email", jsonObject.toString()));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2321,10 +2321,10 @@ public class ApiUtils {
             // 判断Config.getKey()是否为null
             if(ApiConfig.getKey()==null){
                 // 如果Config.getKey()为null，则调用OkHttpUtils.uploadMultipleFilesWithJson方法上传文件，并将返回的结果赋值给result
-                result = OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "upload", path, jsonObject.toString());
+                result = OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "upload", path, jsonObject.toString());
             }else{
                 // 如果Config.getKey()不为null，则调用SignUtils.decrypt方法对上传结果进行解密，并将解密后的结果赋值给result
-                result = SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getAdmin() + "upload", path, jsonObject.toString()));
+                result = SignUtils.decrypt(OkHttpUtils.uploadMultipleFilesWithJson(ApiConfig.getApi() + "upload", path, jsonObject.toString()));
             }
             // 返回result
             return result;
