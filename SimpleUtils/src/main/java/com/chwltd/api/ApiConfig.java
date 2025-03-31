@@ -4,7 +4,7 @@ public class ApiConfig {
     //admin 后台地址
     //key 后台key
     //device 用户设备码
-    private static String admin,key,device;
+    private static String admin,key,device,adminSimple;
     private static int appid;
     private static String userToken;
     private static String qqAppid;
@@ -65,5 +65,13 @@ public class ApiConfig {
 
     public static void setVersion(String version) {
         ApiConfig.version = version;
+    }
+
+    public static String getAdminSimple() {
+        return adminSimple;
+    }
+
+    public static void setAdminSimple(String adminSimple) {
+        ApiConfig.adminSimple = adminSimple;
     }
 }

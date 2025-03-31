@@ -1,5 +1,11 @@
 package com.chwltd.utils;
+import android.annotation.SuppressLint;
+
 import com.chwltd.tools.AES;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+
+import java.io.StringReader;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -11,6 +17,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TextUtils {
+    public static boolean isJson(String jsonString) {
+        try (JsonReader jsonReader = new JsonReader(new StringReader(jsonString))) {
+            JsonToken token = jsonReader.peek();
+            return token != JsonToken.END_DOCUMENT;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     //提取文本中的url
     public static List<String> extractLinks(String text) {
         List<String> links = new ArrayList<>();
@@ -98,10 +112,12 @@ public class TextUtils {
         return bigInteger;
     }
 
+    @SuppressLint("NewApi")
     public static String str2base64(String str) {
         return new String(Base64.getEncoder().encode(str.trim().getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8).trim().replace("\n", "");
     }
 
+    @SuppressLint("NewApi")
     public static String base642Str(String str) {
         return new String(Base64.getDecoder().decode(str.trim()), StandardCharsets.UTF_8).trim();
     }

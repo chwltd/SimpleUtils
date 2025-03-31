@@ -21,7 +21,6 @@ dependencyResolutionManagement {
         maven("https://jitpack.io")
     }
 }
-
 rootProject.name = "SimpleUtils"
 include(":app")
 include(":SimpleUtils")
