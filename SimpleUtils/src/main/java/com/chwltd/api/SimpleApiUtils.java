@@ -36,6 +36,54 @@ public class SimpleApiUtils {
         }
     }
 
+    public static String getResFragmentData() {
+        try {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
+            jsonObject.addProperty("limit", ApiConfig.getPostLimit());
+            jsonObject.addProperty("page", ApiConfig.getAppid());
+            jsonObject.addProperty("timestamp", System.currentTimeMillis());
+            String result = OkHttpUtils.postJson(ApiConfig.getSimpleApi() + "getResFragmentData", jsonObject.toString());
+            return backData(result);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getActivitiesPageData() {
+        try {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
+            jsonObject.addProperty("limit", ApiConfig.getPostLimit());
+            jsonObject.addProperty("page", ApiConfig.getAppid());
+            jsonObject.addProperty("timestamp", System.currentTimeMillis());
+            String result = OkHttpUtils.postJson(ApiConfig.getSimpleApi() + "getActivitiesPageData", jsonObject.toString());
+            return backData(result);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getFineSelectionPageData() {
+        try {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("appid", ApiConfig.getAppid());
+            jsonObject.addProperty("usertoken", ApiConfig.getUserToken());
+            jsonObject.addProperty("limit", ApiConfig.getPostLimit());
+            jsonObject.addProperty("page", ApiConfig.getAppid());
+            jsonObject.addProperty("timestamp", System.currentTimeMillis());
+            String result = OkHttpUtils.postJson(ApiConfig.getSimpleApi() + "getFineSelectionPageData", jsonObject.toString());
+            return backData(result);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String getPlatePageData() {
         try {
             JsonObject jsonObject = new JsonObject();
